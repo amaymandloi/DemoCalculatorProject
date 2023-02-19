@@ -144,35 +144,35 @@ const Calculator = () => {
           <Current>{current}</Current>
         </Screen>
 
-        <Button>MR</Button>
+      <Button>MR</Button>
         <Button>M+</Button>
         <Button>M-</Button>
         <Button>MC</Button>
-        <Button operation data={"1/x"} onClick={numberByOne}>
-          1/x
+        <Button control onClick={allclearHandler}>
+          AC
         </Button>
+
+        <Button operation data={"x²"} onClick={squareOfNumber}>
+          x²
+        </Button>
+
         <Button operation data={"√"} onClick={squareRootOfNumber}>
           ²√x
+        </Button>
+        <Button del onClick={deleteHandler}>
+          ⌫
+        </Button>
+        <Button operation data={"1/x"} onClick={numberByOne}>
+          1/x
         </Button>
         <Button operation data={"%"} onClick={percentage}>
           %
         </Button>
-
-        <Button control onClick={allclearHandler}>
-          AC
-        </Button>
-        <Button operation data={"x²"} onClick={squareOfNumber}>
-          x²
-        </Button>
-        <Button operation data={"-"} onClick={chooseOperationHandler}>
-          -
-        </Button>
-        <Button operation data={"+"} onClick={chooseOperationHandler}>
-          +
-        </Button>
         <Button operation data={"/"} onClick={chooseOperationHandler}>
           /
         </Button>
+        <Button blank onClick={deleteHandler}></Button>
+
         <Button data={1} onClick={appendValueHandler}>
           1
         </Button>
@@ -195,11 +195,9 @@ const Calculator = () => {
         <Button data={6} onClick={appendValueHandler}>
           6
         </Button>
-
-        <Button del onClick={deleteHandler}>
-          ⌫
+        <Button operation data={"-"} onClick={chooseOperationHandler}>
+          -
         </Button>
-
         <Button data={7} onClick={appendValueHandler}>
           7
         </Button>
@@ -211,7 +209,9 @@ const Calculator = () => {
           9
         </Button>
 
-        <Button blank onClick={deleteHandler}></Button>
+        <Button operation data={"+"} onClick={chooseOperationHandler}>
+          +
+        </Button>
         <Button decimal data={"."} onClick={appendValueHandler}>
           .
         </Button>
