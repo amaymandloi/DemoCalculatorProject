@@ -1,0 +1,88 @@
+package com.yash.calculator;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
+
+import com.yash.calculator.model.Calculator;
+import com.yash.calculator.services.CalculatorSeviceIMPL;
+
+
+public class CalculatorServicesTestCases {
+	@Test
+	  public void positiveAdditionTest() {
+			CalculatorSeviceIMPL  calculatorService = new CalculatorSeviceIMPL();
+		    Calculator result = calculatorService.addition(2, 2);
+		    assertEquals(2, result.getFirstnumber());
+		    assertEquals(2, result.getSecondnumber());
+		    assertEquals(4, result.getTotal());
+	}
+	  
+		@Test
+		  public void negativeAddTest() {
+			CalculatorSeviceIMPL calculatorService = new CalculatorSeviceIMPL();
+		    Calculator result = calculatorService.addition(2, 2);
+
+
+		    assertNotEquals(5, result.getTotal());
+		  }
+
+		@Test
+		  public void positivesubtractionTest() {
+			CalculatorSeviceIMPL calculatorService = new CalculatorSeviceIMPL();
+			 
+		    Calculator result = calculatorService.subtractionion(4, 1);
+
+		    assertEquals(4, result.getFirstnumber());
+		    assertEquals(1, result.getSecondnumber());
+		    assertEquals(3, result.getTotal());
+		  }
+		
+		@Test
+		  public void negativesubtractionTest() {
+			CalculatorSeviceIMPL calculatorService = new CalculatorSeviceIMPL();
+		    Calculator result = calculatorService.subtraction(4, 1);
+
+		    assertNotEquals(5, result.getTotal());
+		  }
+		
+		@Test
+		  public void positivemultificationTest() {
+			CalculatorSeviceIMPL calculatorService = new CalculatorSeviceIMPL();
+		    Calculator result = calculatorService.multification(2, 4);
+
+		    assertEquals(2, result.getFirstnumber());
+		    assertEquals(4, result.getSecondnumber());
+		    assertEquals(8, result.getTotal());
+		  }
+		
+		@Test
+		  public void negativemultificationTest() {
+			CalculatorSeviceIMPL calculatorService = new CalculatorSeviceIMPL();
+		    Calculator result = calculatorService.multification(2,4);
+
+		    assertNotEquals(88, result.getTotal());
+		  }
+		
+		
+		@Test
+		  public void positiveDivideTest() {
+			CalculatorSeviceIMPL calculatorService = new CalculatorSeviceIMPL();
+		    Calculator result = calculatorService.divide(8,2);
+
+		    assertEquals(8, result.getFirstnumber());
+		    assertEquals(2, result.getSecondnumber());
+		    assertEquals(4, result.getTotal());
+		  }
+		
+		@Test
+		  public void negativeDivideTest() {
+			CalculatorSeviceIMPL calculatorService = new CalculatorSeviceIMPL();
+		    Calculator result = calculatorService.divide(8, 2);
+
+		    assertNotEquals(5, result.getTotal());
+		  }
+			  
+	  
+}

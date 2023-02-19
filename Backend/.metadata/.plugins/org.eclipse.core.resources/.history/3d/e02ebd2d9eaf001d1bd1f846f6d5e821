@@ -1,0 +1,60 @@
+package com.yash.calculator.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.yash.calculator.model.Calculator;
+import com.yash.calculator.services.CalculatorService;
+@RestController
+@CrossOrigin(origins = "http://localhost:3000")
+public class CalculatorController {
+
+	@Autowired(required = true)
+    private CalculatorService service;
+	
+    Calculator cal = new Calculator();
+    
+    @GetMapping("/addition/{x}/{y}")
+	public double addition(@PathVariable double x ,@PathVariable double y) {
+		cal = service.addition(x, y);
+		return cal.getTotal();
+	}
+	@GetMapping("/subtractionion/{x}/{y}")
+	public double subtractionion(@PathVariable double x,@PathVariable double y) {
+		cal = service.subtractionion(x, y);
+		return cal.getTotal();
+	}
+	@GetMapping("/multification/{x}/{y}")
+	public double multification(@PathVariable double x,@PathVariable double y) {
+		cal = service.multification(x, y);
+		return cal.getTotal();
+	}
+	@GetMapping("/division/{x}/{y}")
+	public double division(@PathVariable double x,@PathVariable double y) {
+		cal = service.division(x, y);
+		return cal.getTotal();
+	}
+	@GetMapping("/percentage/{x}/{y}")
+	public double percentage(@PathVariable double x,@PathVariable double y) {
+		cal = service.percentage(x, y);
+		return cal.getTotal();
+	}
+	@GetMapping("/square/{x}")
+	public double square(@PathVariable double x) {
+		cal = service.square(x);
+		return cal.getTotal();
+	}
+	@GetMapping("/squareRoot/{x}")
+	public double squareRoot(@PathVariable double x) {
+		cal = service.squareRoot(x);
+		return cal.getTotal();
+	}
+	@GetMapping("/numberByOne/{x}")
+	public double numberByOne(@PathVariable double x) {
+		cal = service.numberByone(x);
+		return cal.getTotal();
+	}
+}

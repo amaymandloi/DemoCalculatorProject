@@ -1,0 +1,5 @@
+package com.yash.calculator.model;
+
+public class Calculator {
+
+}
