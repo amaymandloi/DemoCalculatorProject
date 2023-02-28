@@ -52,7 +52,31 @@ public class CalculatorSeviceIMPL implements CalculatorService {
 	
 		return new Calculator(x,x,1/x);
 	}
+	@Override
+	public Calculator sinValue(double x) {
+		
+		return new Calculator(x,x,Math.sin(x));
+	}
+	@Override
+	public Calculator cosValue(double x) {
+		
+		return new Calculator(x,x,Math.cos(x));
+	}
+	@Override
+	public Calculator tanValue(double x) {
+		
+		return new Calculator(x,x,Math.tan(x));
+	}
+	@Override
+	public Calculator cosecValue(double x) {
 
+		return new Calculator(x,x,1/Math.sin(x));
+	}
+	@Override
+	public Calculator cotValue(double x) {
+		
+		return new Calculator(x,x,1/Math.tan(x));
+	}
 
 	
 

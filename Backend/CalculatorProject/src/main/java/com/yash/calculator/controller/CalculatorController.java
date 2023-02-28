@@ -63,4 +63,32 @@ public class CalculatorController {
     cal = service.numberByone(x);
     return cal.getTotal();
   }
+
+	@GetMapping("/sinValue/{x}")
+	public double sinValue(@PathVariable double x) {
+		cal = service.sinValue(x);
+		return cal.getTotal();
+	}
+	
+	@GetMapping("/cosValue/{x}")
+	public double cosValue(@PathVariable double x) {
+		cal = service.cosValue(x);
+		return cal.getTotal();
+	}
+	@GetMapping("/tanValue/{x}")
+	public double tanValue(@PathVariable double x) {
+		cal = service.tanValue(x);
+		return cal.getTotal();
+	}
+	
+	@GetMapping("/cosecValue/{x}")
+	public double cosecValue(@PathVariable double x) {
+		cal = service.cosecValue(x);
+		return cal.getTotal();
+	}
+	@GetMapping("/cotValue/{x}")
+	public double cotValue(@PathVariable double x) {
+		cal = service.cotValue(x);
+		return cal.getTotal();
+	}
 }

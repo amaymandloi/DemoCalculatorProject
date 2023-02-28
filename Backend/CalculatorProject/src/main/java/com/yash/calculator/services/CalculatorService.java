@@ -19,4 +19,14 @@ public interface CalculatorService {
 	Calculator squareRoot(double x);
 	
 	Calculator numberByone(double x);
+	
+    Calculator sinValue(double x);
+	
+	Calculator cosValue(double x);
+	
+	Calculator tanValue(double x);
+	
+	Calculator cosecValue(double x);
+	
+	Calculator cotValue(double x);
 }
