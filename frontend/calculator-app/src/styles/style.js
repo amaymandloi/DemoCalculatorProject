@@ -71,6 +71,7 @@ export const Button = styled.button`
     `background-color:#00000000;border: none; &:hover {
     background-color:#00000000;
   }`};
+
   ${({ operation }) => operation && `background-color:gray;`};
   ${({ control }) => control && `background-color:skyBlue;`};
   ${({ del }) => del && `background-color:skyBlue;height:160px`};

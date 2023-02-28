@@ -7,10 +7,9 @@ const Calculator = () => {
   const [current, setCurrent] = useState("");
   const [prevoius, setPrevoius] = useState("");
   const [operations, setOperations] = useState("");
-  //const [result, setResult] = useState("");
+  const [memory, setMemory] = useState("");
 
   const appendValueHandler = (el) => {
-    console.log("btn click");
     const value = el.target.getAttribute("data");
     if (value === "." && current.includes(".")) return;
     setCurrent(current + value);
@@ -24,7 +23,6 @@ const Calculator = () => {
     setCurrent("");
     setOperations("");
     setPrevoius("");
-    //  setResult("");
   };
 
   const chooseOperationHandler = (el) => {
@@ -82,6 +80,8 @@ const Calculator = () => {
     setOperations("");
   };
 
+  // memory Operation
+
   const compute = async () => {
     // let result=parseFloat(result1);
     let num1 = parseFloat(prevoius);
@@ -89,31 +89,27 @@ const Calculator = () => {
     if (isNaN(num1) || isNaN(num2)) return;
     switch (operations) {
       case "/":
-        const divresult = await axios.get(
-          `${base_url}division/${num1}/${num2}`
-        );
-        setCurrent(divresult.data.toString());
+        const div = await axios.get(`${base_url}division/${num1}/${num2}`);
+        setCurrent(div.data.toString());
         break;
 
       case "X":
-        const mulresult = await axios.get(
+        const multi = await axios.get(
           `${base_url}multification/${num1}/${num2}`
         );
-        setCurrent(mulresult.data.toString());
+        setCurrent(multi.data.toString());
         break;
 
       case "+":
-        const sumresult = await axios.get(
-          `${base_url}addition/${num1}/${num2}`
-        );
-        setCurrent(sumresult.data.toString());
+        const addition = await axios.get(`${base_url}addition/${num1}/${num2}`);
+        setCurrent(addition.data.toString());
         break;
 
       case "-":
-        const subresult = await axios.get(
+        const sub = await axios.get(
           `${base_url}subtractionion/${num1}/${num2}`
         );
-        setCurrent(subresult.data.toString());
+        setCurrent(sub.data.toString());
         break;
 
       case "%":
@@ -126,14 +122,28 @@ const Calculator = () => {
       default:
         return;
     }
-
-    // return result;
   };
 
-  //console.log(compute());
+  const addToMemory = () => {
+    if (current === "") return;
+    setMemory((Number(memory) + Number(current)).toString());
+  };
+
+  const clearMemory = () => {
+    setMemory("");
+  };
+
+  const recallmemory = () => {
+    if (memory === "") return;
+    setCurrent(memory);
+  };
+
+  const subToMemory = () => {
+    if (current === "") return;
+    setMemory((Number(memory) - Number(current)).toString());
+  };
 
   return (
-    // memory:null,
     <>
       <Container>
         <Screen>
@@ -144,10 +154,11 @@ const Calculator = () => {
           <Current>{current}</Current>
         </Screen>
 
-      <Button>MR</Button>
-        <Button>M+</Button>
-        <Button>M-</Button>
-        <Button>MC</Button>
+        <Button onClick={addToMemory}>M+</Button>
+        <Button onClick={clearMemory}>MC</Button>
+        <Button onClick={recallmemory}>MR</Button>
+        <Button onClick={subToMemory}>M-</Button>
+
         <Button control onClick={allclearHandler}>
           AC
         </Button>
