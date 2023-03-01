@@ -91,25 +91,4 @@ public class CalculatorController {
 		cal = service.cotValue(x);
 		return cal.getTotal();
 	}
-	@GetMapping("/secValue/{x}")
-	public double secValue(@PathVariable double x) {
-		cal = service.secValue(x);
-		return cal.getTotal();
-	}
-	@GetMapping("/logValue/{x}")
-	public double logValue(@PathVariable double x) {
-		cal = service.logValue(x);
-		return cal.getTotal();
-	}
-	@GetMapping("/piValue")
-	public double piValue() {
-		cal = service.piValue();
-		return cal.getTotal();
-	}
-	@GetMapping("/tenValue/{x}")
-	public double tenValue(@PathVariable double x) {
-		cal = service.tenPower(x);
-		return cal.getTotal();
-	}
-	 
 }

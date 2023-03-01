@@ -55,7 +55,7 @@ public class CalculatorSeviceIMPL implements CalculatorService {
 	@Override
 	public Calculator sinValue(double x) {
 		
-		return new Calculator(x,x,Math.sin(Math.toRadians(x)));
+		return new Calculator(x,x,Math.sin(x));
 	}
 	@Override
 	public Calculator cosValue(double x) {
@@ -70,32 +70,14 @@ public class CalculatorSeviceIMPL implements CalculatorService {
 	@Override
 	public Calculator cosecValue(double x) {
 
-		return new Calculator(x,x,1/Math.sin(Math.toRadians(x)));
+		return new Calculator(x,x,1/Math.sin(x));
 	}
 	@Override
 	public Calculator cotValue(double x) {
 		
-		return new Calculator(x,x,1/Math.tan(Math.toRadians(x)));
+		return new Calculator(x,x,1/Math.tan(x));
 	}
-	@Override
-	public Calculator secValue(double x) {
-		
-		return new Calculator(x,x,1/Math.cos(Math.toRadians(x)));
-	}
-	@Override
-	public Calculator logValue(double x) {
-		
-		return new Calculator(x,x,Math.log10(x));
-	}
-	@Override
-	public Calculator piValue() {
-		
-		return new Calculator(0,0,Math.PI);
-	}
-	@Override
-	public Calculator tenPower(double x) {
-		
-		return new Calculator(0,0,Math.pow(10, x));
-	}
+
+	
 
 }

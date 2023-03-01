@@ -1,14 +1,20 @@
 import React, { useState } from "react";
-import { Container, Screen, Prevoius, Current, Button } from "./style";
+import {
+  Container,
+  Screen,
+  Prevoius,
+  Current,
+  Button,
+} from "./ScientificStyle";
 import axios from "axios";
 import base_url from "../baseapi/baseapi";
-import ChacheMemory from "./ChacheMemory";
+// import ChacheMemory from "./ChacheMemory";
 
-const Calculator = () => {
+const ScientificCalculator = () => {
   const [current, setCurrent] = useState("");
   const [prevoius, setPrevoius] = useState("");
   const [operations, setOperations] = useState("");
-  const [memory, setMemory] = useState("");
+  // const [memory, setMemory] = useState("");
 
   const appendValueHandler = (el) => {
     const value = el.target.getAttribute("data");
@@ -38,17 +44,17 @@ const Calculator = () => {
     setOperations(el.target.getAttribute("data"));
   };
 
-  const percentage = async (el) => {
-    if (current === "") return;
-    if (prevoius !== "") {
-      let value = compute();
-      setPrevoius(value);
-    } else {
-      setPrevoius(current);
-    }
-    setCurrent("");
-    setOperations(el.target.getAttribute("data"));
-  };
+  // const percentage = async (el) => {
+  //   if (current === "") return;
+  //   if (prevoius !== "") {
+  //     let value = compute();
+  //     setPrevoius(value);
+  //   } else {
+  //     setPrevoius(current);
+  //   }
+  //   setCurrent("");
+  //   setOperations(el.target.getAttribute("data"));
+  // };
 
   const squareOfNumber = async (e1) => {
     if (current === "") return;
@@ -64,13 +70,71 @@ const Calculator = () => {
     setCurrent(square.data.toString());
   };
 
-  const numberByOne = async (e1) => {
+  // const numberByOne = async (e1) => {
+  //   if (current === "") return;
+  //   console.log("numberByOne");
+  //   const result = await axios.get(`${base_url}numberByOne/${current}`);
+  //   setCurrent(result.data.toString());
+  // };
+
+  const sinValue = async (e1) => {
     if (current === "") return;
-    console.log("numberByOne");
-    const result = await axios.get(`${base_url}numberByOne/${current}`);
+    console.log("sinValue");
+    const result = await axios.get(`${base_url}sinValue/${current}`);
     setCurrent(result.data.toString());
   };
 
+  const cosValue = async (e1) => {
+    if (current === "") return;
+    console.log("cosValue");
+    const result = await axios.get(`${base_url}cosValue/${current}`);
+    setCurrent(result.data.toString());
+  };
+
+  const tanValue = async (e1) => {
+    if (current === "") return;
+    console.log("tanValue");
+    const result = await axios.get(`${base_url}tanValue/${current}`);
+    setCurrent(result.data.toString());
+  };
+
+  const cosecValue = async (e1) => {
+    if (current === "") return;
+    console.log("cosecValue");
+    const result = await axios.get(`${base_url}cosecValue/${current}`);
+    setCurrent(result.data.toString());
+  };
+  const cotValue = async (e1) => {
+    if (current === "") return;
+    console.log("cotValue");
+    const result = await axios.get(`${base_url}cotValue/${current}`);
+    setCurrent(result.data.toString());
+  };
+
+  const secValue = async (e1) => {
+    if (current === "") return;
+    console.log("secValue");
+    const result = await axios.get(`${base_url}secValue/${current}`);
+    setCurrent(result.data.toString());
+  };
+
+  const logValue = async (e1) => {
+    if (current === "") return;
+    console.log("logValue");
+    const result = await axios.get(`${base_url}logValue/${current}`);
+    setCurrent(result.data.toString());
+  };
+  const piValue = async (e1) => {
+    console.log("piValue");
+    const result = await axios.get(`${base_url}piValue`);
+    setCurrent(result.data.toString());
+  };
+  const tenValue = async (e1) => {
+    if (current === "") return;
+    console.log("tenValue");
+    const result = await axios.get(`${base_url}tenValue/${current}`);
+    setCurrent(result.data.toString());
+  };
   const equalHandler = () => {
     let value = compute();
     console.log(`value is ${value}`);
@@ -80,9 +144,6 @@ const Calculator = () => {
     setPrevoius("");
     setOperations("");
   };
-
-  // memory Operation
-
   const compute = async () => {
     // let result=parseFloat(result1);
     let num1 = parseFloat(prevoius);
@@ -124,30 +185,9 @@ const Calculator = () => {
         return;
     }
   };
-
-  const addToMemory = () => {
-    if (current === "") return;
-    setMemory((Number(memory) + Number(current)).toString());
-  };
-
-  const clearMemory = () => {
-    setMemory("");
-  };
-
-  const recallmemory = () => {
-    if (memory === "") return;
-    setCurrent(memory);
-  };
-
-  const subToMemory = () => {
-    if (current === "") return;
-    setMemory((Number(memory) - Number(current)).toString());
-  };
-
   return (
     <>
       <Container>
-        <ChacheMemory />
         <Screen>
           <Prevoius>
             {prevoius}
@@ -155,32 +195,31 @@ const Calculator = () => {
           </Prevoius>
           <Current>{current}</Current>
         </Screen>
-        <Button onClick={addToMemory}>M+</Button>
-        <Button onClick={clearMemory}>MC</Button>
-        <Button onClick={recallmemory}>MR</Button>
-        <Button onClick={subToMemory}>M-</Button>
-        <Button control onClick={allclearHandler}>
-          AC
+
+        <Button onClick={sinValue}>Sin</Button>
+        <Button onClick={cosValue}>Cos</Button>
+        <Button onClick={tanValue}>Tan</Button>
+        <Button onClick={cosecValue}>Cosec</Button>
+        <Button onClick={cotValue}>Cot</Button>
+        <Button onClick={secValue}>Sec</Button>
+        <Button onClick={tenValue}>10x</Button>
+        <Button>)</Button>
+
+        <Button operation data={"√"} onClick={squareRootOfNumber}>
+          ²√x
         </Button>
         <Button operation data={"x²"} onClick={squareOfNumber}>
           x²
         </Button>
-        <Button operation data={"√"} onClick={squareRootOfNumber}>
-          ²√x
+        <Button control onClick={allclearHandler}>
+          AC
         </Button>
-        <Button del onClick={deleteHandler}>
+        <Button onClick={logValue}>log</Button>
+        <Button onClick={piValue}>π</Button>
+
+        <Button control onClick={deleteHandler}>
           ⌫
         </Button>
-        <Button operation data={"1/x"} onClick={numberByOne}>
-          1/x
-        </Button>
-        <Button operation data={"%"} onClick={percentage}>
-          %
-        </Button>
-        <Button operation data={"/"} onClick={chooseOperationHandler}>
-          /
-        </Button>
-        <Button blank onClick={deleteHandler}></Button>
         <Button data={1} onClick={appendValueHandler}>
           1
         </Button>
@@ -190,9 +229,10 @@ const Calculator = () => {
         <Button data={3} onClick={appendValueHandler}>
           3
         </Button>
-        <Button operation data={"X"} onClick={chooseOperationHandler}>
-          X
+        <Button operation data={"/"} onClick={chooseOperationHandler}>
+          /
         </Button>
+
         <Button data={4} onClick={appendValueHandler}>
           4
         </Button>
@@ -202,9 +242,10 @@ const Calculator = () => {
         <Button data={6} onClick={appendValueHandler}>
           6
         </Button>
-        <Button operation data={"-"} onClick={chooseOperationHandler}>
-          -
+        <Button operation data={"X"} onClick={chooseOperationHandler}>
+          X
         </Button>
+
         <Button data={7} onClick={appendValueHandler}>
           7
         </Button>
@@ -214,21 +255,25 @@ const Calculator = () => {
         <Button data={9} onClick={appendValueHandler}>
           9
         </Button>
-        <Button operation data={"+"} onClick={chooseOperationHandler}>
-          +
+        <Button operation data={"-"} onClick={chooseOperationHandler}>
+          -
         </Button>
         <Button decimal data={"."} onClick={appendValueHandler}>
           .
         </Button>
+
         <Button data={0} onClick={appendValueHandler}>
           0
         </Button>
         <Button equals onClick={equalHandler}>
           =
         </Button>
+        <Button operation data={"+"} onClick={chooseOperationHandler}>
+          +
+        </Button>
       </Container>
     </>
   );
 };
 
-export default Calculator;
+export default ScientificCalculator;

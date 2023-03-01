@@ -1,9 +1,10 @@
 import Calculator from "./styles/Calculator";
+import ScientificCalculator from "./styles/ScientificCalculator";
 function App() {
   return (
     <div className="App">
-
-      <Calculator />
+      {/* <Calculator /> */}
+      <ScientificCalculator />
     </div>
   );
 }

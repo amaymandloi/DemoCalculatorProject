@@ -29,12 +29,4 @@ public interface CalculatorService {
 	Calculator cosecValue(double x);
 	
 	Calculator cotValue(double x);
-	
-    Calculator secValue(double x);
-	
-	Calculator logValue(double x);
-	
-	Calculator piValue();
-	
-	Calculator tenPower(double x);
 }

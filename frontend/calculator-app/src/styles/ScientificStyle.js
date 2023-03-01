@@ -5,12 +5,12 @@ export const Container = styled.div`
   justify-content: center;
   align-content: center;
   margin: 40px auto;
-  grid-template-columns: repeat(4, 110px);
+  grid-template-columns: repeat(5, 110px);
   grid-template-rows: minmax(120px, auto) repeat(7, 80px);
   box-shadow: 2px 2px 10px #333;
   border-radius: 10px;
 
-  width: 500px;
+  width: 600px;
   height: 700px;
   padding: 10px;
   border-radius: 10px;
