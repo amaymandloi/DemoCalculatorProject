@@ -1,0 +1,119 @@
+package com.yash.calculator.controller;
+
+import com.yash.calculator.model.Calculator;
+import com.yash.calculator.services.CalculatorService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@CrossOrigin(origins = "http://localhost:3000")
+public class CalculatorController {
+  @Autowired(required = true)
+  private CalculatorService service;
+
+  Calculator cal = new Calculator();
+
+  @GetMapping("/addition/{x}/{y}")
+  public double addition(@PathVariable double x, @PathVariable double y) {
+    cal = service.addition(x, y);
+    return cal.getTotal();
+  }
+
+  @GetMapping("/subtractionion/{x}/{y}")
+  public double subtractionion(@PathVariable double x, @PathVariable double y) {
+    cal = service.subtractionion(x, y);
+    return cal.getTotal();
+  }
+
+  @GetMapping("/multification/{x}/{y}")
+  public double multification(@PathVariable double x, @PathVariable double y) {
+    cal = service.multification(x, y);
+    return cal.getTotal();
+  }
+
+  @GetMapping("/division/{x}/{y}")
+  public double division(@PathVariable double x, @PathVariable double y) {
+    cal = service.division(x, y);
+    return cal.getTotal();
+  }
+
+  @GetMapping("/percentage/{x}/{y}")
+  public double percentage(@PathVariable double x, @PathVariable double y) {
+    cal = service.percentage(x, y);
+    return cal.getTotal();
+  }
+
+  @GetMapping("/square/{x}")
+  public double square(@PathVariable double x) {
+    cal = service.square(x);
+    return cal.getTotal();
+  }
+
+  @GetMapping("/squareRoot/{x}")
+  public double squareRoot(@PathVariable double x) {
+    cal = service.squareRoot(x);
+    return cal.getTotal();
+  }
+
+  @GetMapping("/numberByOne/{x}")
+  public double numberByOne(@PathVariable double x) {
+    cal = service.numberByone(x);
+    return cal.getTotal();
+  }
+
+	@GetMapping("/sinValue/{x}")
+	public double sinValue(@PathVariable double x) {
+		cal = service.sinValue(x);
+		return cal.getTotal();
+	}
+	
+	@GetMapping("/cosValue/{x}")
+	public double cosValue(@PathVariable double x) {
+		cal = service.cosValue(x);
+		return cal.getTotal();
+	}
+	@GetMapping("/tanValue/{x}")
+	public double tanValue(@PathVariable double x) {
+		cal = service.tanValue(x);
+		return cal.getTotal();
+	}
+	
+	@GetMapping("/cosecValue/{x}")
+	public double cosecValue(@PathVariable double x) {
+		cal = service.cosecValue(x);
+		return cal.getTotal();
+	}
+	@GetMapping("/cotValue/{x}")
+	public double cotValue(@PathVariable double x) {
+		cal = service.cotValue(x);
+		return cal.getTotal();
+	}
+	@GetMapping("/secValue/{x}")
+	public double secValue(@PathVariable double x) {
+		cal = service.secValue(x);
+		return cal.getTotal();
+	}
+	@GetMapping("/logValue/{x}")
+	public double logValue(@PathVariable double x) {
+		cal = service.logValue(x);
+		return cal.getTotal();
+	}
+	@GetMapping("/piValue")
+	public double piValue() {
+		cal = service.piValue();
+		return cal.getTotal();
+	}
+	@GetMapping("/tenValue/{x}")
+	public double tenValue(@PathVariable double x) {
+		cal = service.tenPower(x);
+		return cal.getTotal();
+	}
+	@GetMapping("/expression")
+	 public double expression( ) {
+		 cal = service.expression()
+		 return cal.getTotal();
+	 }
+}

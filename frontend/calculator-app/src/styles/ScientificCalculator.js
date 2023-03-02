@@ -135,6 +135,12 @@ const ScientificCalculator = () => {
     const result = await axios.get(`${base_url}tenValue/${current}`);
     setCurrent(result.data.toString());
   };
+  const cube = async (e1) => {
+    if (current === "") return;
+    console.log("cube");
+    const result = await axios.get(`${base_url}cube/${current}`);
+    setCurrent(result.data.toString());
+  };
   const equalHandler = () => {
     let value = compute();
     console.log(`value is ${value}`);
@@ -195,7 +201,6 @@ const ScientificCalculator = () => {
           </Prevoius>
           <Current>{current}</Current>
         </Screen>
-
         <Button onClick={sinValue}>Sin</Button>
         <Button onClick={cosValue}>Cos</Button>
         <Button onClick={tanValue}>Tan</Button>
@@ -203,22 +208,15 @@ const ScientificCalculator = () => {
         <Button onClick={cotValue}>Cot</Button>
         <Button onClick={secValue}>Sec</Button>
         <Button onClick={tenValue}>10x</Button>
-        <Button>)</Button>
-
+        <Button operation data={"x³"} onClick={cube}>
+          x³
+        </Button>
         <Button operation data={"√"} onClick={squareRootOfNumber}>
           ²√x
         </Button>
+
         <Button operation data={"x²"} onClick={squareOfNumber}>
           x²
-        </Button>
-        <Button control onClick={allclearHandler}>
-          AC
-        </Button>
-        <Button onClick={logValue}>log</Button>
-        <Button onClick={piValue}>π</Button>
-
-        <Button control onClick={deleteHandler}>
-          ⌫
         </Button>
         <Button data={1} onClick={appendValueHandler}>
           1
@@ -232,44 +230,47 @@ const ScientificCalculator = () => {
         <Button operation data={"/"} onClick={chooseOperationHandler}>
           /
         </Button>
-
-        <Button data={4} onClick={appendValueHandler}>
-          4
-        </Button>
+        <Button onClick={piValue}>π</Button>
         <Button data={5} onClick={appendValueHandler}>
           5
         </Button>
         <Button data={6} onClick={appendValueHandler}>
           6
         </Button>
-        <Button operation data={"X"} onClick={chooseOperationHandler}>
-          X
+        <Button data={4} onClick={appendValueHandler}>
+          4
         </Button>
-
-        <Button data={7} onClick={appendValueHandler}>
-          7
+        <Button operation data={"×"} onClick={chooseOperationHandler}>
+          ×
+        </Button>
+        <Button onClick={logValue}>log</Button>
+        <Button data={9} onClick={appendValueHandler}>
+          9
         </Button>
         <Button data={8} onClick={appendValueHandler}>
           8
         </Button>
-        <Button data={9} onClick={appendValueHandler}>
-          9
+        <Button data={7} onClick={appendValueHandler}>
+          7
         </Button>
-        <Button operation data={"-"} onClick={chooseOperationHandler}>
-          -
+        <Button operation data={"+"} onClick={chooseOperationHandler}>
+          +
         </Button>
+        <Button onClick={deleteHandler}>⌫</Button>
         <Button decimal data={"."} onClick={appendValueHandler}>
           .
         </Button>
-
         <Button data={0} onClick={appendValueHandler}>
           0
         </Button>
         <Button equals onClick={equalHandler}>
           =
         </Button>
-        <Button operation data={"+"} onClick={chooseOperationHandler}>
-          +
+        <Button operation data={"-"} onClick={chooseOperationHandler}>
+          -
+        </Button>
+        <Button control onClick={allclearHandler}>
+          AC
         </Button>
       </Container>
     </>

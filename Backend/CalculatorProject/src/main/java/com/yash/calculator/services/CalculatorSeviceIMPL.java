@@ -1,5 +1,8 @@
 package com.yash.calculator.services;
 
+
+import java.math.BigInteger;
+
 import org.springframework.stereotype.Service;
 
 import com.yash.calculator.model.Calculator;
@@ -8,7 +11,6 @@ public class CalculatorSeviceIMPL implements CalculatorService {
 
 	@Override
 	public Calculator addition(double x, double y) {
-		
 		return new Calculator(x,y,x+y);
 	}
 	@Override
@@ -97,5 +99,9 @@ public class CalculatorSeviceIMPL implements CalculatorService {
 		
 		return new Calculator(0,0,Math.pow(10, x));
 	}
-
+	@Override
+	public Calculator cube(double x) {
+		
+		return new Calculator(x,x,x*x*x);
+	}
 }

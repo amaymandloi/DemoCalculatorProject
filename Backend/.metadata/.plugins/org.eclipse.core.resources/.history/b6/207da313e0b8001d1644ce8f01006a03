@@ -1,0 +1,42 @@
+package com.yash.calculator.services;
+
+import com.yash.calculator.model.Calculator;
+
+public interface CalculatorService {
+
+	Calculator addition(double x, double y);
+	           
+	Calculator subtractionion(double x, double y);
+	
+	Calculator multification(double x, double y);
+	
+	Calculator division(double x, double y);
+	
+	Calculator percentage(double x, double y); 
+	
+	Calculator square(double x);
+	
+	Calculator squareRoot(double x);
+	
+	Calculator numberByone(double x);
+	
+    Calculator sinValue(double x);
+	
+	Calculator cosValue(double x);
+	
+	Calculator tanValue(double x);
+	
+	Calculator cosecValue(double x);
+	
+	Calculator cotValue(double x);
+	
+    Calculator secValue(double x);
+	
+	Calculator logValue(double x);
+	
+	Calculator piValue();
+	
+	Calculator tenPower(double x);
+	
+	Calculator factValue(double x);
+}

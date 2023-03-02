@@ -111,5 +111,10 @@ public class CalculatorController {
 		cal = service.tenPower(x);
 		return cal.getTotal();
 	}
-	 
+	@GetMapping("/cube/{x}")
+	public double cube(@PathVariable double x) {
+		cal = service.cube(x);
+		return cal.getTotal();
+	}
+
 }

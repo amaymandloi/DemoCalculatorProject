@@ -73,7 +73,8 @@ export const Button = styled.button`
   }`};
 
   ${({ operation }) => operation && `background-color:gray;`};
-  ${({ control }) => control && `background-color:skyBlue;`};
+  ${({ control }) =>
+    control && `background-color:skyBlue;border-bottom-right-radius:10px;`};
   ${({ del }) => del && `background-color:skyBlue;height:160px`};
   ${({ equals }) => equals && `background-color:gray;;width:110px`};
   ${({ decimal }) =>

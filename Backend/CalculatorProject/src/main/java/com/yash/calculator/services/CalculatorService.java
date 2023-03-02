@@ -12,7 +12,7 @@ public interface CalculatorService {
 	
 	Calculator division(double x, double y);
 	
-	Calculator percentage(double x, double y);
+	Calculator percentage(double x, double y); 
 	
 	Calculator square(double x);
 	
@@ -37,4 +37,7 @@ public interface CalculatorService {
 	Calculator piValue();
 	
 	Calculator tenPower(double x);
+	
+	Calculator cube(double x);
+	
 }
