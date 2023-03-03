@@ -147,7 +147,7 @@ const Calculator = () => {
   return (
     <>
       <Container>
-        <ChacheMemory />
+        {/* <ChacheMemory /> */}
         <Screen>
           <Prevoius>
             {prevoius}

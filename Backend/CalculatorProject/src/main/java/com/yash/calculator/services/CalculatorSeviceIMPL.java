@@ -104,4 +104,10 @@ public class CalculatorSeviceIMPL implements CalculatorService {
 		
 		return new Calculator(x,x,x*x*x);
 	}
+	@Override
+	public Calculator mode(double x, double y) {
+		
+		return new Calculator(x,y,x%y);
+	}
+
 }

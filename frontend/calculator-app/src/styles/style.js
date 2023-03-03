@@ -75,7 +75,7 @@ export const Button = styled.button`
   ${({ operation }) => operation && `background-color:gray;`};
   ${({ control }) => control && `background-color:skyBlue;`};
   ${({ del }) => del && `background-color:skyBlue;height:160px`};
-  ${({ equals }) => equals && `background-color:gray;;width:110px`};
+  ${({ equals }) => equals && `background-color:gray;;width:220px`};
   ${({ decimal }) =>
     decimal && `background-color:gray;border-bottom-left-radius:10px;`};
 `;

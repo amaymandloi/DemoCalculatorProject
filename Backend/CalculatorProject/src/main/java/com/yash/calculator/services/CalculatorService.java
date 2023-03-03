@@ -40,4 +40,5 @@ public interface CalculatorService {
 	
 	Calculator cube(double x);
 	
+	Calculator mode(double x, double y);
 }

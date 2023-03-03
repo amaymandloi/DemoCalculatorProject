@@ -116,5 +116,10 @@ public class CalculatorController {
 		cal = service.cube(x);
 		return cal.getTotal();
 	}
+	 @GetMapping("/mod/{x}/{y}")
+	  public double mod(@PathVariable double x, @PathVariable double y) {
+	    cal = service.mode(x, y);
+	    return cal.getTotal();
+	  }
 
 }
