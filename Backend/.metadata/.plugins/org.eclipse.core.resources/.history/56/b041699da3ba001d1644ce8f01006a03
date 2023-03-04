@@ -12,7 +12,7 @@ public interface CalculatorService {
 	
 	Calculator division(double x, double y);
 	
-	Calculator mod(double x, double y); 
+	Calculator percentage(double x, double y); 
 	
 	Calculator square(double x);
 	

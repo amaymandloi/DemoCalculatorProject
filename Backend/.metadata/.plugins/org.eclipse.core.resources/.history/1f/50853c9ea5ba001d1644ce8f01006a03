@@ -41,8 +41,8 @@ public class CalculatorController {
   }
 
   @GetMapping("/mod/{x}/{y}")
-  public double mod(@PathVariable double x, @PathVariable double y) {
-    cal = service.mod(x,y);
+  public double percentage(@PathVariable double x, @PathVariable double y) {
+    cal = service.mod(x, y);
     return cal.getTotal();
   }
 

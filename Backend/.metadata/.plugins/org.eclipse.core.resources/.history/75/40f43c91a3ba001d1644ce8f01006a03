@@ -40,9 +40,9 @@ public class CalculatorController {
     return cal.getTotal();
   }
 
-  @GetMapping("/mod/{x}/{y}")
-  public double mod(@PathVariable double x, @PathVariable double y) {
-    cal = service.mod(x,y);
+  @GetMapping("/percentage/{x}/{y}")
+  public double percentage(@PathVariable double x, @PathVariable double y) {
+    cal = service.percentage(x, y);
     return cal.getTotal();
   }
 
@@ -116,5 +116,10 @@ public class CalculatorController {
 		cal = service.cube(x);
 		return cal.getTotal();
 	}
+	 @GetMapping("/mod/{x}/{y}")
+	  public double mod(@PathVariable double x, @PathVariable double y) {
+	    cal = service.mode(x, y);
+	    return cal.getTotal();
+	  }
 
 }

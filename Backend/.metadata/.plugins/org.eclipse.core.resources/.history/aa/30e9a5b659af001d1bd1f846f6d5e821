@@ -1,5 +1,0 @@
-package com.yash.calculator.services;
-
-public interface CalculatorService {
-
-}

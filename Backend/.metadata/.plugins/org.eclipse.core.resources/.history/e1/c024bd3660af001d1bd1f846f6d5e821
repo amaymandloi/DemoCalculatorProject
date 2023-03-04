@@ -1,5 +1,0 @@
-package com.yash.calculator;
-
-public @interface AutoConfigurationMockMvc {
-
-}

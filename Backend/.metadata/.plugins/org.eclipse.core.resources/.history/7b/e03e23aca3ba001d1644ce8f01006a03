@@ -32,9 +32,9 @@ public class CalculatorSeviceIMPL implements CalculatorService {
 	}
 
 	@Override
-	public Calculator mod(double x, double y) {
+	public Calculator percentage(double x, double y) {
 		
-		return new Calculator(x, y,x%y);
+		return new Calculator(x, y, y-((y/100)*x));
 	}
 
 	@Override
@@ -103,6 +103,11 @@ public class CalculatorSeviceIMPL implements CalculatorService {
 	public Calculator cube(double x) {
 		
 		return new Calculator(x,x,x*x*x);
+	}
+	@Override
+	public Calculator mod(double x, double y) {
+		
+		return new Calculator(x,y,x%y);
 	}
 
 }
